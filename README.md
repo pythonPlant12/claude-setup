@@ -17,7 +17,7 @@ The checked-out branch is the active setup. `install.sh` symlinks this repo into
 |---|---|
 | `config/settings.json` | `~/.claude/settings.json` |
 | `config/CLAUDE.md` | `~/.claude/CLAUDE.md` |
-| `config/statusline.sh` | `~/.claude/statusline.sh` (`[update icon |] Model \| Effort \| Ctx \| Session`) |
+| `config/statusline.sh` | `~/.claude/statusline.sh` (`[update icon |] Model \| Effort \| Ctx \| 5h \| 7d \| Session`) |
 | `config/keybindings.json` | `~/.claude/keybindings.json` |
 | `skills/<name>/` | `~/.claude/skills/<name>` |
 | `plugins.json` | Marketplaces and plugins, installed with the `claude` CLI |

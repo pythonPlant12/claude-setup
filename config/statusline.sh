@@ -1,6 +1,6 @@
 #!/bin/sh
 # Claude Code status line, installed to ~/.claude/statusline.sh:
-#   [󰚰 | ]Model: Opus 5.5 | Effort: high | Ctx: 333K/1M | Session: 1h 05m
+#   [󰚰 | ]Model: Opus 5.5 | Effort: high | Ctx: 333K/1M | 5h: 23% | 7d: 41% | Session: 1h 05m
 # The update icon shows only when Homebrew has a newer claude-code@latest
 # than the running version. Reads the status line JSON on stdin.
 
@@ -31,9 +31,11 @@ line=$(printf '%s' "$input" | jq -r '
     | if $s >= 3600 then "\($s / 3600 | floor)h \($s % 3600 / 60 | floor | if . < 10 then "0\(.)" else tostring end)m"
       elif $s >= 60 then "\($s / 60 | floor)m"
       else "\($s)s" end;
+  # Subscription usage; absent for API-key auth and before the first response.
+  def percent: if . == null then "-" else "\(round)%" end;
   (.context_window.current_usage // {}) as $u
   | (($u.input_tokens // 0) + ($u.cache_creation_input_tokens // 0) + ($u.cache_read_input_tokens // 0)) as $used
-  | "Model: \(.model.display_name // "-") | Effort: \(.effort.level // "-") | Ctx: \($used | tokens)/\(.context_window.context_window_size // 0 | tokens) | Session: \(.cost.total_duration_ms // 0 | duration)"
+  | "Model: \(.model.display_name // "-") | Effort: \(.effort.level // "-") | Ctx: \($used | tokens)/\(.context_window.context_window_size // 0 | tokens) | 5h: \(.rate_limits.five_hour.used_percentage | percent) | 7d: \(.rate_limits.seven_day.used_percentage | percent) | Session: \(.cost.total_duration_ms // 0 | duration)"
 ')
 
 current=$(printf '%s' "$input" | jq -r '.version // empty')

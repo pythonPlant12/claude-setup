@@ -84,7 +84,7 @@ install_config() {
   log "Linking Claude Code configuration"
   mkdir -p "$BACKUP_DIR" "$CLAUDE_DIR"
   local file
-  # statusline.sh: [update icon |] Model | Effort | Ctx | Session (statusLine in settings.json).
+  # statusline.sh: [update icon |] Model | Effort | Ctx | 5h | 7d | Session (statusLine in settings.json).
   for file in settings.json statusline.sh CLAUDE.md keybindings.json; do
     link_into_claude "$CONFIG_DIR/$file" "$CLAUDE_DIR/$file"
   done
