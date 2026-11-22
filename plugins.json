@@ -1,0 +1,25 @@
+{
+  "marketplaces": {
+    "claude-plugins-official": "anthropics/claude-plugins-official",
+    "omc": "https://github.com/Yeachan-Heo/oh-my-claudecode.git",
+    "babysit-pr-marketplace": "vaibhavmalik/babysit-pr"
+  },
+  "plugins": [
+    "babysit-pr@babysit-pr-marketplace",
+    "code-review@claude-plugins-official",
+    "code-simplifier@claude-plugins-official",
+    "commit-commands@claude-plugins-official",
+    "feature-dev@claude-plugins-official",
+    "frontend-design@claude-plugins-official",
+    "hookify@claude-plugins-official",
+    "lua-lsp@claude-plugins-official",
+    "mcp-tunnels@claude-plugins-official",
+    "oh-my-claudecode@omc",
+    "pr-review-toolkit@claude-plugins-official",
+    "pyright-lsp@claude-plugins-official",
+    "security-guidance@claude-plugins-official",
+    "session-report@claude-plugins-official",
+    "skill-creator@claude-plugins-official",
+    "superpowers@claude-plugins-official"
+  ]
+}

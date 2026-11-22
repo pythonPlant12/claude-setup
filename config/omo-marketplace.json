@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "omo-marketplace",
+  "description": "Oh My OpenCode workflows for Claude Code",
+  "owner": {
+    "name": "mrzhbr"
+  },
+  "plugins": [
+    {
+      "name": "omo",
+      "description": "Multi-agent orchestration for Claude Code",
+      "version": "1.1.0",
+      "author": {
+        "name": "mrzhbr"
+      },
+      "source": "./omo",
+      "category": "development"
+    }
+  ]
+}
